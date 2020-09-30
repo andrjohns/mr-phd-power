@@ -1,0 +1,33 @@
+  MONTECARLO:			
+    NAMES = Y X1-X3;
+    NOBSERVATIONS = 115;
+    NREPS = 10000;
+    SEED = 2020;
+    GENERATE = Y(1);
+    CATEGORICAL = Y;
+
+  MODEL POPULATION:
+  ! Standard-Normal Predictors
+    [X1-X3@0];
+    X1-X3@1;
+
+  ! Set threshold to give 9% utilisation
+  !   at sample mean of predictors. Based on:
+  !   P(Y=1|x) = 1 / (1 + exp(-L))
+  ! 
+  !   Where L = -threshold + b*x
+    [Y$1*2.31363];
+    
+  ! Set 'Medium' effect of predictors as OR = 3.47,
+  !   according to Chen, Cohen, & Chen (2010). 
+    Y ON X1-X3*1.244155;
+
+  ANALYSIS: 
+    PROCESS = 8;
+    LINK = LOGIT;
+    ESTIMATOR = ML;
+ 
+  MODEL:
+    Y ON X1-X3*1.244155;
+    [Y$1*2.31363];
+
