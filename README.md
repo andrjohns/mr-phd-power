@@ -23,11 +23,13 @@ When simulating the power to detect a ‘Medium’ effect from six predictors an
 | 100 | 70.16% | -94.82% | .920|
 | 200 | 9.65% | -7.54% | .998|
 
-Given that the model is more than adequately powered, but it is biased, we can instead split the 6-predictor model into two 3-predictor models and correct the p-value after the fact using a Bonferroni-Holm correction. Using this approach, we can have both adequate power and acceptable bias with only 115 participants:
+Given that the model is more than adequately powered, but it is biased, we can instead split the 6-predictor model into two 3-predictor models. Using this approach, we can have both very good power and acceptable bias with only 115 participants:
 
 | Sample Size | Parameter Bias | SE Bias | Power |
 | ----------- | -------------- | ------- | ----- |
 | 115 | 10.39% | -9.30% | .975|
+
+Given that the individual models will now be over-powered, we can correct the p-values for multiple comparisons using the Bonferroni-Holm correction while still retaining adequate power in the individual models.
 
 ## Reproducibility
 
