@@ -2,8 +2,8 @@ library(MplusAutomation)
 library(tidyverse)
 
 get_bias_pwr = function(model_name) {
-  runModels(paste0("Logistic Regression/",model_name,".inp"))
-  readModels(paste0("Logistic Regression/"model_name,".out"))$parameters[[1]] %>%
+  runModels(paste0(getwd(),"/Logistic Regression/",model_name,".inp"))
+  readModels(paste0(getwd(),"/Logistic Regression/",model_name,".out"))$parameters[[1]] %>%
     data.frame() %>%
     filter(grepl("ON",paramHeader)) %>%
     mutate(par_bias = (average - population)/population,
