@@ -18,7 +18,7 @@ Bias refers to how ‘wrong’ the estimate would be in the current sample size 
 
 ### Linear Regression
 
-Given a model with three outcomes correlated at 0.5 and six predictors, a sample size of 100 would be able to detect a ‘Medium’ effect with minimal bias and more than adequate power:
+Given a model with three outcomes correlated at 0.5 and six predictors, a sample size of 100 would be able to detect a ‘Small to Medium’ effect with minimal bias and more than adequate power:
 
 | Sample Size | Parameter Bias | SE Bias | Power |
 | ----------- | -------------- | ------- | ----- |
