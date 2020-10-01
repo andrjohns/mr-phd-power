@@ -16,14 +16,24 @@ Bias refers to how ‘wrong’ the estimate would be in the current sample size 
 
 ## Results
 
-When simulating the power to detect a ‘Medium’ effect from six predictors and an outcome with a 9% event rate in a sample of 100 individuals, the model was highly powered but also severely biased:
+### Linear Regression
+
+Given a model with three outcomes correlated at 0.5 and six predictors, a sample size of 100 would be able to detect a ‘Medium’ effect with minimal bias and more than adequate power:
+
+| Sample Size | Parameter Bias | SE Bias | Power |
+| ----------- | -------------- | ------- | ----- |
+| 100 | 0.09% | -4.38% | .920|
+
+### Logistic Regression
+
+When simulating the power to detect a ‘Medium’ effect from six predictors and an outcome with a 9% event rate in a sample of 100 individuals, the model was highly powered but also severely biased. A sample of at least 200 individuals would be needed for this model:
 
 | Sample Size | Parameter Bias | SE Bias | Power |
 | ----------- | -------------- | ------- | ----- |
 | 100 | 70.16% | -94.82% | .920|
 | 200 | 9.65% | -7.54% | .998|
 
-Given that the model is more than adequately powered, but it is biased, we can instead split the 6-predictor model into two 3-predictor models. Using this approach, we can have both very good power and acceptable bias with only 115 participants:
+Given that the model with 100 participants is more than adequately powered, but is biased, we can instead split the 6-predictor model into two 3-predictor models. Using this approach, we can have both very good power and acceptable bias with only 115 participants:
 
 | Sample Size | Parameter Bias | SE Bias | Power |
 | ----------- | -------------- | ------- | ----- |

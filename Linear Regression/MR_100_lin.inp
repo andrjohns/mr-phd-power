@@ -1,0 +1,31 @@
+  MONTECARLO:			
+    NAMES = Y1-Y3 X1-X6;
+    NOBSERVATIONS = 100;
+    NREPS = 10000;
+    SEED = 2020;
+	
+  MODEL POPULATION:
+  ! Six standard-normal predictors
+    X1-X6@1;
+    [X1-X6@0];
+ 
+  ! Each predictor has a 'Small-Medium' effect
+    Y1-Y3 on X1-X6@0.3;
+    
+  ! Residual covariances of Ys, and covariances
+  !   of Xs to give standard-normal Ys with
+  !   correlation of 0.5 
+    Y1-Y3@0.622;
+    Y1-Y3 WITH Y1-Y3@0.122;
+    X1-X3 with X1-X3@-0.3;
+
+  ANALYSIS:
+    PROCESS = 8;
+    ESTIMATOR = ML;
+
+  MODEL:
+    Y1-Y3 ON X1-X6*0.3;
+    Y1-Y3*0.622;
+    Y1-Y3 WITH Y1-Y3*0.122;
+
+  OUTPUT: SAMP;
